@@ -59,12 +59,7 @@ func createPresignedUrl(bucket, keyName string, valid int) (string, error) {
 		return "", err
 	}
 
-	urlStr, err := req.Presign(duration)
-	if err != nil {
-		return "", err
-	}
-
-	return urlStr, nil
+	return req.Presign(duration)
 }
 
 func errAndExit(msg string) {
