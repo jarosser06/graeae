@@ -86,7 +86,7 @@ func main() {
 	}
 	args := flag.Args()
 
-	if len(args) < 0 {
+	if len(args) == 0 {
 		errAndExit("Missing file to share")
 	}
 
