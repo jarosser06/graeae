@@ -1,0 +1,20 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Create S3 Bucket with lifecycle policy to delete objects after 30 days.'
+Parameters:
+  BucketName:
+    Description: Name of S3 Bucket to create.
+    Type: String
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+      BucketName: !Ref BucketName
+      LifecycleConfiguration:
+        Rules:
+          - ExpirationInDays: 7
+            Status: Enabled
+Outputs:
+  Bucket:
+    Value: !Ref S3Bucket
